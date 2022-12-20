@@ -1,0 +1,8 @@
+.star{
+    cursor: pointer;
+    transition: color 200ms;
+    padding: 2px;
+}
+.rating{
+    display: none;
+}

@@ -1,0 +1,19 @@
+.modalSignUp {
+    background-color: rgba(0, 0, 0, 0.24);
+    z-index: 1000;
+}
+p#errorMassage{
+color:rgb(252, 1, 1);
+font-size: small;
+margin-top: 5px;
+padding-top:2px ;
+}
+.footerSingUp{
+    color: red;
+    display: flex;
+    justify-content: space-between !important ;
+    background-color: blueviolet;
+}
+.btnNext{
+    margin-right: 20px;
+}

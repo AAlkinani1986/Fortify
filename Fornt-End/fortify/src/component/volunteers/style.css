@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Volunteers main page start */
+/* ************************************************************************ */
+.volunteersCard{
+margin: 30px;
+}
+.volunteersHeaderCard{
+  display: flex;
+ justify-items: center;
+ background-color: rgba(212, 243, 180, 0.075) !important;
+
+
+}
+
+.volunteerName{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  padding: 3px 3px 0 30px;
+  margin: 3px 2px 2px 30px ;
+}
+.volunteerName > h6{
+  margin-top: 5px;
+  font-weight: bold;
+}
+.volunteerName > p{
+color: rgb(122, 121, 121);
+}
+.VCSkills{
+  display: flex;
+ 
+}
+.VCSkills > p {
+  margin-right: 10px;
+}
+.volunteersCC, .volunteersIR{
+  margin: -15px 2px  !important;
+  padding: 0px auto;
+ 
+}
+.volunteerCardBody{
+  margin-top: -10px;
+  margin-bottom: 5px;
+  border-top: 1px dashed rgb(24, 146, 13) !important ;
+}
+/* Volunteers main page end */
+/* ************************************************************************ */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.btn-green {
+  background-color: green;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 0.3rem;
+  border: none;
+  outline: none;
+}
+
+.volunteer-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+.volunteer-card {
+  padding: 3rem 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+.volunteer-card article {
+  background-color: #fff;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.volunteer-card img.profile {
+  width: 100%;
+  border-radius: 0.25rem;
+}
+
+.volunteer-card h3 {
+  background-color: #111827;
+  color: #fff;
+  font-size: 1.25rem;
+  padding: 0.4rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.volunteer-card ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 3rem;
+}
+
+.volunteer-card ul li {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.warning {
+  color: red;
+  font-weight: bold;
+  font-size: 1.25rem;
+  border: 2px solid red;
+  padding: 0.5rem 2rem;
+  margin-top: 2.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .volunteer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .volunteer-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
