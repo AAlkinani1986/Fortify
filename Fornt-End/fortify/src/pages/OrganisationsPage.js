@@ -37,13 +37,12 @@ const OrganisationsPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  console.log(organizations)
   return (
     <>
       {orgsLoaded ? (
         <Row xs={1} md={3} className="g-4">
           {organizations.map((organization) => (
-            <Col key={organization.id}>
+            <Col key={organization.organization_id}>
               <Card
                 className="organizationsCard"
                 border="success"

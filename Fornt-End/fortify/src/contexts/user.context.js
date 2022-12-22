@@ -54,6 +54,7 @@ export const UserProvider = ({ children }) => {
       throw error
     }
   }
+  // function to fetch organizations from mongo db
   const getOrganizations = async () => {
     const rests = app.currentUser
       .mongoClient('mongodb-atlas')
@@ -62,6 +63,7 @@ export const UserProvider = ({ children }) => {
       .find()
     return rests
   }
+  // function to insert organization in fortify organizations collection
   const InsertOrganization = async (form) => {
     try {
       console.log(form)
@@ -106,9 +108,58 @@ export const UserProvider = ({ children }) => {
       return error
     }
   }
+  // function to insert organization in fortify organizations collection
+  const InsertVolunteer = async (form) => {
+    try {
+      console.log(form)
+      app.currentUser
+        .mongoClient('mongodb-atlas')
+        .db('Fortify')
+        .collection('Volunteers')
+        .insertOne({
+          first_name: form.first_name,
+          last_name: form.last_name,
+          skills: form.skills,
+          qualification: form.qualification,
+          email: form.email,
+          aboutUs: form.aboutUs,
+          address: form.address,
+          phoneNumber: form.phoneNumber,
+          image: form.image,
+          environmentHIP: {
+            applicationControl: form.applicationControl,
+            PatchApp: form.PatchApplication,
+            configureMS365: form.configureMS365,
+            userWebAPP: form.userWebAPP,
+            restrictAdminP: form.restrictAdminP,
+            patchOP: form.patchOP,
+            multiFactorAuth: form.multiFactorAuth,
+            backups: form.backups,
+          },
+          processCapability: {
+            penetration: form.penetration,
+            developCp: form.developCp,
+            developCS: form.developCS,
+            developCA: form.developCA,
+          },
+          incidentResponse: {
+            ransomwareAttack: form.ransomwareAttack,
+            websiteCom: form.websiteCom,
+            userAccountComm: form.userAccountComm,
+            dataLoss: form.dataLoss,
+            malwareDetect: form.malwareDetect,
+          },
+
+          volunteer_id: app?.currentUser?.id,
+        })
+    } catch (error) {
+      return error
+    }
+  }
   return (
     <UserContext.Provider
       value={{
+        InsertVolunteer,
         getOrganizations,
         user,
         InsertOrganization,

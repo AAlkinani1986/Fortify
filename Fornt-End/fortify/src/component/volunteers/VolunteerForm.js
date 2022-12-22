@@ -105,9 +105,7 @@ export default function VolunteerForm(props) {
       )
       if (user) {
         InsertVolunteer(form)
-
         alert('your application added successfully ')
-
         props.onHide()
       }
     } catch (error) {
@@ -150,11 +148,11 @@ export default function VolunteerForm(props) {
           <Form.Group className="mb-3 formDetails" controlId="details">
             <Image
               id="imagePreview"
-              thumbnail
+              className="rounded-circle"
               src={require('./data/images/avatar.png')}
               style={{
-                width: '150px',
-                height: '150px',
+                width: '125px',
+                height: '125px',
               }}
             />
             <FormGroup className="detailsInfo">

@@ -41,7 +41,6 @@ const OrganisationProfile = () => {
       })
 
       setEnvironmentHIP(org.environmentHIP)
-      console.log('org', org.environmentHIP.configureMS365)
 
       return { success: true, data: org }
     } catch (error) {
