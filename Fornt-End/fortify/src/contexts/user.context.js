@@ -108,6 +108,52 @@ export const UserProvider = ({ children }) => {
       return error
     }
   }
+  const updateOrganization = async (form) => {
+    try {
+      console.log(form)
+      app.currentUser
+        .mongoClient('mongodb-atlas')
+        .db('Fortify')
+        .collection('Organizations')
+        .findOneAndUpdate(
+          { organization_id: app?.currentUser?.id },
+          {
+            name: form.name,
+            email: form.email,
+            aboutUs: form.aboutUs,
+            address: form.address,
+            phoneNumber: form.phoneNumber,
+            image: form.image,
+            environmentHIP: {
+              applicationControl: form.applicationControl,
+              PatchApp: form.PatchApplication,
+              configureMS365: form.configureMS365,
+              userWebAPP: form.userWebAPP,
+              restrictAdminP: form.restrictAdminP,
+              patchOP: form.patchOP,
+              multiFactorAuth: form.multiFactorAuth,
+              backups: form.backups,
+            },
+            processCapability: {
+              penetration: form.penetration,
+              developCp: form.developCp,
+              developCS: form.developCS,
+              developCA: form.developCA,
+            },
+            incidentResponse: {
+              ransomwareAttack: form.ransomwareAttack,
+              websiteCom: form.websiteCom,
+              userAccountComm: form.userAccountComm,
+              dataLoss: form.dataLoss,
+              malwareDetect: form.malwareDetect,
+            },
+            organization_id: app?.currentUser?.id,
+          },
+        )
+    } catch (error) {
+      return error
+    }
+  }
   // function to insert organization in fortify organizations collection
   const InsertVolunteer = async (form) => {
     try {
@@ -159,6 +205,7 @@ export const UserProvider = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
+        updateOrganization,
         InsertVolunteer,
         getOrganizations,
         user,

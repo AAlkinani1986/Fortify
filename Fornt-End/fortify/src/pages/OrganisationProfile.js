@@ -22,7 +22,9 @@ import StarRating from '../component/Organisation/StarRating'
 import { App } from 'realm-web'
 import { APP_ID } from '../realm/constants'
 
+import OrganizationUpdate from '../component/Organisation/OrganizationUpdate'
 const OrganisationProfile = () => {
+  const [OrgForm, setOrgForm] = React.useState(false)
   const { organizationId } = useParams()
   console.log('id', organizationId)
   const [orgLoaded, setOrgLoaded] = useState(false)
@@ -39,7 +41,6 @@ const OrganisationProfile = () => {
       let org = await rests.findOne({
         organization_id: organizationId,
       })
-
       setEnvironmentHIP(org.environmentHIP)
 
       return { success: true, data: org }
@@ -48,7 +49,7 @@ const OrganisationProfile = () => {
     }
   }
 
-  console.log('organization', environmentHIP)
+  console.log('organization', organization)
 
   useEffect(() => {
     ;(async () => {
@@ -138,6 +139,17 @@ const OrganisationProfile = () => {
                 </td>
               </tr>
             </table>
+            {organization.organization_id === app?.currentUser?.id && (
+              <div className="DVEdit">
+                <button
+                  onClick={() => setOrgForm(true)}
+                  type="button"
+                  className="btn edit btn-danger  btn-lg"
+                >
+                  edit
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="column">
@@ -195,6 +207,11 @@ const OrganisationProfile = () => {
               </tr>
             </table>
           </div>
+          <OrganizationUpdate
+            form={organization}
+            show={OrgForm}
+            onHide={() => setOrgForm(false)}
+          />
         </div>
       ) : (
         <div className="btnLoader">
